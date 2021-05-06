@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Cowboy",
+    "price": 5.99,
+    "ingredients": ["pepperoni", "sausage", "mushrooms"]
+  },
+  {
+    "name": "Marinara",
+    "price": 6.99,
+    "ingredients": ["marinara sauce", "garlic", "olive oil", "basil", "oregano"]
+  },
+  {
+    "name": "Romana",
+    "price": 5.99,
+    "ingredients": ["tomato", "mozzarella", "anchovies", "oregano", "oil"]
+  },
+  {
+    "name": "Diavola",
+    "price": 7.99,
+    "ingredients": ["tomato", "mozzarella", "spicy salami"]
+  },
+  {
+    "name": "Tonno",
+    "price": 8.99,
+    "ingredients": ["mozzarella", "tomato sauce", "tuna"]
+  }
+]
