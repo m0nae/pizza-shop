@@ -5,8 +5,8 @@ export const Sidebar = styled.div`
   height: 100vh;
   width: 400px;
   background-color: #eef0ee;
-  /* position: absolute; */
-  /* position: fixed; */
+  position: fixed;
+  right: 0;
 `;
 
 export const Container = styled.div`
@@ -27,7 +27,7 @@ export const Total = styled.p`
 `;
 
 export const CheckoutBtn = styled.button`
-width: 100%;
+  width: 100%;
   background-color: #c30f0e;
   border-radius: 8px;
   outline: none;
@@ -38,5 +38,3 @@ width: 100%;
   font-size: 1.5rem;
   cursor: pointer;
 `;
-
-// red color: #C30F0E

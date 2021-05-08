@@ -6,11 +6,9 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   // width will dynamically change when the sidebar is toggled on and off
-  // when toggled off, the width will just be 90vw
-  // and set the width to actual px (not vw)
-  // and just use breakpoints. dealing with vw is way too complex
-  width: calc(83vw - 400px);
-  margin: 0 auto;
+  // when toggled off, the width will just be 90vw (?)
+  // and set the width to actual px (not vw) and use breakpoints
+  width: calc(100vw - 400px);
   padding-top: 1rem;
   order: 1;
 `;
@@ -18,8 +16,5 @@ export const Wrapper = styled.div`
 export const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* margin: 0 auto;
-  align-content: flex-start;
-  justify-content: space-between; */
-  /* align-content: flex-start; */
+  margin: 0 auto;
 `;
