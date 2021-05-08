@@ -1,3 +1,9 @@
+import { Container } from "./CardStyles";
+
 export default function () {
-  return <></>;
+  return (
+    <Container>
+      <p>Card</p>
+    </Container>
+  );
 }
