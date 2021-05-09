@@ -8,7 +8,19 @@ import { fetchAllPizzas } from "../../app/pizzaSlice";
 export default function Home() {
   const dispatch = useAppDispatch();
   const allPizzas = useAppSelector((state) => {
-    return state.pizzas.pizzas;
+    return state.pizzas.allPizzas;
+  });
+
+  const cardList = allPizzas.map((pizza) => {
+    return (
+      <Card
+        key={pizza.id}
+        id={pizza.id}
+        name={pizza.name}
+        price={pizza.price}
+        ingredients={pizza.ingredients}
+      />
+    );
   });
 
   useEffect(() => {
@@ -19,13 +31,7 @@ export default function Home() {
   return (
     <Container>
       <Wrapper>
-        <CardsContainer>
-          <Card
-            title="Pepperoni"
-            price="$7.99"
-            ingredients={["pepperoni", "cheese", "bread"]}
-          />
-        </CardsContainer>
+        <CardsContainer>{cardList}</CardsContainer>
       </Wrapper>
       <Cart />
     </Container>

@@ -8,23 +8,42 @@ export const fetchAllPizzas = createAsyncThunk("pizzas/fetchAll", async () => {
   return response.json();
 });
 
-interface PizzaState {
-  pizzas: PizzaI[];
+interface CartPizzaI extends PizzaI {
+  quantity: number;
 }
 
-const initialState: PizzaState = {
-  pizzas: [],
+interface PizzaSliceState {
+  allPizzas: PizzaI[];
+  cart: CartPizzaI[];
+}
+
+const initialState: PizzaSliceState = {
+  allPizzas: [],
+  cart: [],
 };
 
 export const pizzaSlice = createSlice({
   name: "pizzas",
   initialState,
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      const item = state.allPizzas.find((pizza) => pizza.id === action.payload);
+
+      if (item) {
+        state.cart.push({ ...item, quantity: 1 });
+      }
+    },
+    removeFromCart: (state, action) => {
+      // remove from cart
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAllPizzas.fulfilled, (state, action) => {
-      state.pizzas.push(...action.payload);
+      state.allPizzas.push(...action.payload);
     });
   },
 });
+
+export const { addToCart, removeFromCart } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;

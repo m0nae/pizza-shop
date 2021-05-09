@@ -1,5 +1,6 @@
 export interface PizzaI {
+  id: number;
   name: string;
-  price: number;
+  price: string;
   ingredients: string[];
 }
