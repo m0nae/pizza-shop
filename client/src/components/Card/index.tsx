@@ -1,9 +1,21 @@
 import { Container } from "./CardStyles";
 
-export default function () {
+type CardProps = {
+  title: string;
+  price: string;
+  ingredients: string[];
+};
+
+export default function ({ title, price, ingredients }: CardProps) {
+  const ingredientsList = ingredients.map((ingredient, index) => (
+    <p key={index}>{ingredient}</p>
+  ));
+
   return (
     <Container>
-      <p>Card</p>
+      <p>{title}</p>
+      <p>{price}</p>
+      <div>{ingredientsList}</div>
     </Container>
   );
 }

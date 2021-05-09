@@ -20,11 +20,11 @@ export default function Home() {
     <Container>
       <Wrapper>
         <CardsContainer>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card
+            title="Pepperoni"
+            price="$7.99"
+            ingredients={["pepperoni", "cheese", "bread"]}
+          />
         </CardsContainer>
       </Wrapper>
       <Cart />
