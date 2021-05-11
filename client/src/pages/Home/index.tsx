@@ -1,5 +1,13 @@
 import { useEffect } from "react";
-import { Wrapper, Container, CardsContainer } from "./HomeStyles";
+import {
+  Wrapper,
+  Container,
+  CardsContainer,
+  Navbar,
+  CartIcon,
+  NavLeft,
+  NavRight,
+} from "./HomeStyles";
 import Card from "../../components/Card";
 import Cart from "../../components/Cart";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -15,6 +23,7 @@ export default function Home() {
     return (
       <Card
         key={pizza.id}
+        image="https://via.placeholder.com/370"
         id={pizza.id}
         name={pizza.name}
         price={pizza.price}
@@ -31,6 +40,14 @@ export default function Home() {
   return (
     <Container>
       <Wrapper>
+        <Navbar>
+          <NavLeft></NavLeft>
+          <NavRight>
+            <CartIcon>
+              <i className="fas fa-shopping-cart"></i>
+            </CartIcon>
+          </NavRight>
+        </Navbar>
         <CardsContainer>{cardList}</CardsContainer>
       </Wrapper>
       <Cart />

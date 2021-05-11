@@ -1,16 +1,17 @@
-import { Container } from "./CardStyles";
+import { Container, ImageContainer, InfoContainer } from "./CardStyles";
 import { addToCart, removeFromCart } from "../../app/pizzaSlice";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../app/hooks";
 
 type CardProps = {
   name: string;
+  image: string;
   price: number;
   ingredients: string[];
   id: number;
 };
 
-export default function ({ name, price, ingredients, id }: CardProps) {
+export default function ({ name, image, price, ingredients, id }: CardProps) {
   const ingredientsList = ingredients?.map((ingredient, index) => (
     <p key={index}>{ingredient}</p>
   ));
@@ -37,13 +38,18 @@ export default function ({ name, price, ingredients, id }: CardProps) {
 
   return (
     <Container>
-      <p>{name}</p>
-      <p>{price}</p>
-      <div>{ingredientsList}</div>
-      <CartBtn
-        isInCart={isInCart()}
-        onClick={isInCart() ? dispatchRemoveFromCart : dispatchAddToCart}
-      />
+      <ImageContainer>
+        <img src={image} alt="photo of pizza" />
+      </ImageContainer>
+      <InfoContainer>
+        <p>{name}</p>
+        <p>{price}</p>
+        <div>{ingredientsList}</div>
+        <CartBtn
+          isInCart={isInCart()}
+          onClick={isInCart() ? dispatchRemoveFromCart : dispatchAddToCart}
+        />
+      </InfoContainer>
     </Container>
   );
 }
