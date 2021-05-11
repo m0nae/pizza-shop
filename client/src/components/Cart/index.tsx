@@ -13,9 +13,7 @@ export default function () {
     <Sidebar>
       <Container>
         <CartTop>
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          <CartItem title="Pepperoni" quantity={21} />
         </CartTop>
         <CartBottom>
           <Total>Total: $10.99</Total>
