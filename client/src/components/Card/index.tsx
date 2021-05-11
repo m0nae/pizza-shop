@@ -1,5 +1,10 @@
 import { Container } from "./CardStyles";
-import { addToCart } from "../../app/pizzaSlice";
+import {
+  addToCart,
+  removeFromCart,
+  decreaseQuantity,
+  increaseQuantity,
+} from "../../app/pizzaSlice";
 import { useDispatch } from "react-redux";
 
 type CardProps = {
@@ -18,6 +23,15 @@ export default function ({ name, price, ingredients, id }: CardProps) {
   const dispatchAddToCart = () => {
     return dispatch(addToCart(id));
   };
+  const dispatchRemoveFromCart = () => {
+    return dispatch(removeFromCart(id));
+  };
+  const dispatchDecreaseQuantity = () => {
+    return dispatch(decreaseQuantity(id));
+  };
+  const dispatchIncreaseQuantity = () => {
+    return dispatch(increaseQuantity(id));
+  };
 
   return (
     <Container>
@@ -25,6 +39,9 @@ export default function ({ name, price, ingredients, id }: CardProps) {
       <p>{price}</p>
       <div>{ingredientsList}</div>
       <CartBtn onClick={dispatchAddToCart} />
+      <RemoveCartBtn onClick={dispatchRemoveFromCart} />
+      <Decrease onClick={dispatchDecreaseQuantity} />
+      <Increase onClick={dispatchIncreaseQuantity} />
     </Container>
   );
 }
@@ -35,4 +52,16 @@ type CartBtnProps = {
 
 export function CartBtn({ onClick }: CartBtnProps) {
   return <button onClick={onClick}>Add To Cart</button>;
+}
+
+export function RemoveCartBtn({ onClick }: CartBtnProps) {
+  return <button onClick={onClick}>Remove From Cart</button>;
+}
+
+export function Increase({ onClick }: CartBtnProps) {
+  return <button onClick={onClick}>Increase Item Quantity</button>;
+}
+
+export function Decrease({ onClick }: CartBtnProps) {
+  return <button onClick={onClick}>Decrease Item Quantity</button>;
 }
