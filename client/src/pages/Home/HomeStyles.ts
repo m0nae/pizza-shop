@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   margin: 0 auto;
+  max-width: 90%;
+  width: 90%;
 `;

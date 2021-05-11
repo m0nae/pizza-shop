@@ -6,6 +6,8 @@ export const Container = styled.div`
   border-radius: 5px;
   width: 370px;
   height: 320px;
+  display: inline-block;
+  vertical-align: top;
   margin-right: 1rem;
   margin-bottom: 1rem;
 `;

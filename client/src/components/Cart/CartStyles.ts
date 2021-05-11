@@ -17,9 +17,14 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const CartTop = styled.div``;
+export const CartTop = styled.div`
+  overflow-y: auto;
+  height: 100%;
+`;
 
-export const CartBottom = styled.div``;
+export const CartBottom = styled.div`
+  margin-top: 1rem;
+`;
 
 export const Total = styled.p`
   font-size: 1.5rem;

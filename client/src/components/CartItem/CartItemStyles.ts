@@ -9,7 +9,6 @@ export const Container = styled.div`
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   border-radius: 3px;
-  /* border: 1px solid whitesmoke; */
   position: relative;
 `;
 

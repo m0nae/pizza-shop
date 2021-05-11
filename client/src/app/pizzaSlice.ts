@@ -25,7 +25,7 @@ const initialState: PizzaSliceState = {
 // declare let state: PizzaSliceState;
 // declare let action: { payload: any; type: string };
 
-function existsWithin(
+export function existsWithin(
   stateType: "cart" | "allPizzas",
   state: PizzaSliceState,
   action: {
@@ -95,11 +95,7 @@ export const pizzaSlice = createSlice({
   },
 });
 
-export const {
-  addToCart,
-  removeFromCart,
-  decreaseQuantity,
-  increaseQuantity,
-} = pizzaSlice.actions;
+export const { addToCart, removeFromCart, decreaseQuantity, increaseQuantity } =
+  pizzaSlice.actions;
 
 export default pizzaSlice.reducer;

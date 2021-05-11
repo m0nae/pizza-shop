@@ -1,15 +1,11 @@
 import { Container } from "./CardStyles";
-import {
-  addToCart,
-  removeFromCart,
-  decreaseQuantity,
-  increaseQuantity,
-} from "../../app/pizzaSlice";
+import { addToCart, removeFromCart } from "../../app/pizzaSlice";
 import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
 
 type CardProps = {
   name: string;
-  price: string;
+  price: number;
   ingredients: string[];
   id: number;
 };
@@ -26,11 +22,17 @@ export default function ({ name, price, ingredients, id }: CardProps) {
   const dispatchRemoveFromCart = () => {
     return dispatch(removeFromCart(id));
   };
-  const dispatchDecreaseQuantity = () => {
-    return dispatch(decreaseQuantity(id));
-  };
-  const dispatchIncreaseQuantity = () => {
-    return dispatch(increaseQuantity(id));
+
+  const cart = useAppSelector((state) => state.pizzas.cart);
+
+  const isInCart = (): boolean => {
+    let item = cart.find((pizza) => pizza.id === id);
+
+    if (item) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -38,30 +40,21 @@ export default function ({ name, price, ingredients, id }: CardProps) {
       <p>{name}</p>
       <p>{price}</p>
       <div>{ingredientsList}</div>
-      <CartBtn onClick={dispatchAddToCart} />
-      <RemoveCartBtn onClick={dispatchRemoveFromCart} />
-      <Decrease onClick={dispatchDecreaseQuantity} />
-      <Increase onClick={dispatchIncreaseQuantity} />
+      <CartBtn
+        isInCart={isInCart()}
+        onClick={isInCart() ? dispatchRemoveFromCart : dispatchAddToCart}
+      />
     </Container>
   );
 }
 
-type CartBtnProps = {
+type BtnProps = {
   onClick: () => void;
+  isInCart?: boolean;
 };
 
-export function CartBtn({ onClick }: CartBtnProps) {
-  return <button onClick={onClick}>Add To Cart</button>;
-}
-
-export function RemoveCartBtn({ onClick }: CartBtnProps) {
-  return <button onClick={onClick}>Remove From Cart</button>;
-}
-
-export function Increase({ onClick }: CartBtnProps) {
-  return <button onClick={onClick}>Increase Item Quantity</button>;
-}
-
-export function Decrease({ onClick }: CartBtnProps) {
-  return <button onClick={onClick}>Decrease Item Quantity</button>;
+export function CartBtn({ onClick, isInCart }: BtnProps) {
+  return (
+    <button onClick={onClick}>{isInCart ? "Remove Order" : "Order"}</button>
+  );
 }
