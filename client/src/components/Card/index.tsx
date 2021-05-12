@@ -1,4 +1,10 @@
-import { Container, ImageContainer, InfoContainer } from "./CardStyles";
+import { useState } from "react";
+import {
+  Container,
+  ImageContainer,
+  InfoContainer,
+  Ingredients,
+} from "./CardStyles";
 import { addToCart, removeFromCart } from "../../app/pizzaSlice";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../app/hooks";
@@ -12,6 +18,7 @@ type CardProps = {
 };
 
 export default function ({ name, image, price, ingredients, id }: CardProps) {
+  const [showIngredients, setShowIngredients] = useState(false);
   const ingredientsList = ingredients?.map((ingredient, index) => (
     <p key={index}>{ingredient}</p>
   ));
@@ -22,6 +29,10 @@ export default function ({ name, image, price, ingredients, id }: CardProps) {
   };
   const dispatchRemoveFromCart = () => {
     return dispatch(removeFromCart(id));
+  };
+
+  const handleShowIngredients = () => {
+    setShowIngredients(!showIngredients);
   };
 
   const cart = useAppSelector((state) => state.pizzas.cart);
@@ -44,7 +55,10 @@ export default function ({ name, image, price, ingredients, id }: CardProps) {
       <InfoContainer>
         <p>{name}</p>
         <p>{price}</p>
-        <div>{ingredientsList}</div>
+        <div onClick={handleShowIngredients}>Ingredients</div>
+        <Ingredients showIngredients={showIngredients}>
+          {ingredientsList}
+        </Ingredients>
         <CartBtn
           isInCart={isInCart()}
           onClick={isInCart() ? dispatchRemoveFromCart : dispatchAddToCart}
