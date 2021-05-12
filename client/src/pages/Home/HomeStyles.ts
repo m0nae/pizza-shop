@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CartProps } from "../../components/Cart";
 
 export const Container = styled.div`
   display: flex;
@@ -37,7 +38,9 @@ export const Wrapper = styled.div`
   // width will dynamically change when the sidebar is toggled on and off
   // when toggled off, the width will just be 90vw (?)
   // and set the width to actual px (not vw) and use breakpoints
-  width: calc(100vw - 400px);
+  /* width: calc(100vw - 400px); */
+  width: ${(props: CartProps) =>
+    props.isCartOpen ? "calc(100vw - 400px)" : "100vw"};
   order: 1;
 `;
 

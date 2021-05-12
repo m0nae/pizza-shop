@@ -10,7 +10,11 @@ import CartItem from "../CartItem";
 import { PizzaI } from "../../types";
 import { useAppSelector } from "../../app/hooks";
 
-export default function () {
+export interface CartProps {
+  isCartOpen: boolean;
+}
+
+export default function ({ isCartOpen }: CartProps) {
   const cartItems = useAppSelector((state) => state.pizzas.cart);
   const reducer = (accumulator: number, currentValue: PizzaI): number => {
     const price = currentValue.price * currentValue.quantity;
@@ -29,7 +33,7 @@ export default function () {
   });
 
   return (
-    <Sidebar>
+    <Sidebar isCartOpen={isCartOpen}>
       <Container>
         <CartTop>{cartItemsList}</CartTop>
         <CartBottom>

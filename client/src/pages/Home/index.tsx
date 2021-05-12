@@ -10,14 +10,23 @@ import {
 } from "./HomeStyles";
 import Card from "../../components/Card";
 import Cart from "../../components/Cart";
+import { useDispatch } from "react-redux";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { fetchAllPizzas } from "../../app/pizzaSlice";
+import { fetchAllPizzas, toggleCart } from "../../app/pizzaSlice";
 
 export default function Home() {
-  const dispatch = useAppDispatch();
+  const appDispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const allPizzas = useAppSelector((state) => {
     return state.pizzas.allPizzas;
   });
+  const isCartOpen = useAppSelector((state) => {
+    return state.pizzas.isCartOpen;
+  });
+
+  const dispatchToggleCart = () => {
+    return dispatch(toggleCart(null));
+  };
 
   const cardList = allPizzas.map((pizza) => {
     return (
@@ -33,24 +42,23 @@ export default function Home() {
   });
 
   useEffect(() => {
-    dispatch(fetchAllPizzas());
-    console.log(allPizzas);
+    appDispatch(fetchAllPizzas());
   }, []);
 
   return (
     <Container>
-      <Wrapper>
+      <Wrapper isCartOpen={isCartOpen}>
         <Navbar>
           <NavLeft></NavLeft>
           <NavRight>
-            <CartIcon>
+            <CartIcon onClick={dispatchToggleCart}>
               <i className="fas fa-shopping-cart"></i>
             </CartIcon>
           </NavRight>
         </Navbar>
         <CardsContainer>{cardList}</CardsContainer>
       </Wrapper>
-      <Cart />
+      <Cart isCartOpen={isCartOpen} />
     </Container>
   );
 }

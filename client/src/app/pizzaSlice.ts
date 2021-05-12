@@ -8,23 +8,20 @@ export const fetchAllPizzas = createAsyncThunk("pizzas/fetchAll", async () => {
   return response.json();
 });
 
-// interface CartPizzaI extends PizzaI {
-//   quantity: number;
-// }
-
 interface PizzaSliceState {
   allPizzas: PizzaI[];
   cart: PizzaI[];
+  isCartOpen: boolean;
 }
 
 const initialState: PizzaSliceState = {
   allPizzas: [],
   cart: [],
+  isCartOpen: false,
 };
 
-// declare let state: PizzaSliceState;
-// declare let action: { payload: any; type: string };
-
+// a general function that can check the existence of a certain pizza
+// either within the cart, or within the list of all fetched pizzas
 export function existsWithin(
   stateType: "cart" | "allPizzas",
   state: PizzaSliceState,
@@ -48,6 +45,7 @@ export const pizzaSlice = createSlice({
       if (!existsWithin("cart", state, action)) {
         let item = existsWithin("allPizzas", state, action)!;
         state.cart.push({ ...item, quantity: 1 });
+        state.isCartOpen = true;
       }
     },
 
@@ -82,6 +80,27 @@ export const pizzaSlice = createSlice({
         );
 
         state.cart = updatedCart;
+
+        // if this was the last item in the cart, automatically close the cart
+        if (state.cart.length < 1) {
+          state.isCartOpen = false;
+        }
+      }
+    },
+
+    toggleCart: (state, action) => {
+      // if there's no payload/no cart state is specified,
+      // just default to standard toggling behavior
+      if (!action.payload) {
+        if (state.isCartOpen === true) {
+          state.isCartOpen = false;
+        } else {
+          state.isCartOpen = true;
+        }
+
+        // if a payload/cart state is specified, use it
+      } else {
+        state.isCartOpen = action.payload;
       }
     },
   },
@@ -89,13 +108,19 @@ export const pizzaSlice = createSlice({
     builder.addCase(fetchAllPizzas.fulfilled, (state, action) => {
       state.allPizzas.push(...action.payload);
       state.allPizzas.forEach((pizza) => {
+        // set a default quantity to 0 for all pizzas when first fetched
         pizza.quantity = 0;
       });
     });
   },
 });
 
-export const { addToCart, removeFromCart, decreaseQuantity, increaseQuantity } =
-  pizzaSlice.actions;
+export const {
+  addToCart,
+  toggleCart,
+  removeFromCart,
+  decreaseQuantity,
+  increaseQuantity,
+} = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;

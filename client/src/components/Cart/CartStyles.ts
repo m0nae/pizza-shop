@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { CartProps } from "./index";
 
 export const Sidebar = styled.div`
   order: 2;
   height: 100vh;
-  width: 400px;
+  width: ${(props: CartProps) => (props.isCartOpen ? "400px" : "0px")};
   background-color: #eef0ee;
   position: fixed;
   right: 0;
