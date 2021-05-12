@@ -23,16 +23,30 @@ export const Info = styled.div`
 `;
 
 export const Title = styled.div`
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1rem;
 `;
-export const Counter = styled.input`
-  width: 2rem;
+export const Counter = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 `;
 
 export const RemoveBtn = styled.div`
   position: absolute;
   top: 0.5rem;
   right: 0.8rem;
+  cursor: pointer;
+`;
+
+export const CounterBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: lightgrey;
   cursor: pointer;
 `;

@@ -8,18 +8,33 @@ export const Sidebar = styled.div`
   background-color: #eef0ee;
   position: fixed;
   right: 0;
+
+  transition: width 0.3s ease-in-out;
 `;
 
 export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   justify-content: space-between;
+  position: relative;
+`;
+
+export const CloseIcon = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+
+  > * {
+    font-size: 2rem;
+  }
 `;
 
 export const CartTop = styled.div`
   overflow-y: auto;
+  scrollbar-color: red;
   height: 100%;
 `;
 

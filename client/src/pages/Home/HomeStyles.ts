@@ -42,6 +42,8 @@ export const Wrapper = styled.div`
   width: ${(props: CartProps) =>
     props.isCartOpen ? "calc(100vw - 400px)" : "100vw"};
   order: 1;
+
+  transition: width 0.3s ease-in-out;
 `;
 
 export const CardsContainer = styled.div`

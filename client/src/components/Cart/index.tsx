@@ -2,12 +2,15 @@ import {
   CartBottom,
   CartTop,
   CheckoutBtn,
+  CloseIcon,
   Container,
   Sidebar,
   Total,
 } from "./CartStyles";
 import CartItem from "../CartItem";
+import { toggleCart } from "../../app/pizzaSlice";
 import { PizzaI } from "../../types";
+import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../app/hooks";
 
 export interface CartProps {
@@ -15,6 +18,7 @@ export interface CartProps {
 }
 
 export default function ({ isCartOpen }: CartProps) {
+  const dispatch = useDispatch();
   const cartItems = useAppSelector((state) => state.pizzas.cart);
   const reducer = (accumulator: number, currentValue: PizzaI): number => {
     const price = currentValue.price * currentValue.quantity;
@@ -32,9 +36,16 @@ export default function ({ isCartOpen }: CartProps) {
     );
   });
 
+  const dispatchCloseCart = () => {
+    dispatch(toggleCart(false));
+  };
+
   return (
     <Sidebar isCartOpen={isCartOpen}>
       <Container>
+        <CloseIcon onClick={dispatchCloseCart}>
+          <i className="fas fa-times"></i>
+        </CloseIcon>
         <CartTop>{cartItemsList}</CartTop>
         <CartBottom>
           <Total>Total: ${cartTotal}</Total>

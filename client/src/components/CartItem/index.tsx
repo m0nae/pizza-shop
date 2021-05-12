@@ -1,6 +1,7 @@
 import {
   Container,
   Counter,
+  CounterBtn,
   Img,
   Info,
   RemoveBtn,
@@ -39,9 +40,11 @@ export default function ({ id, title, quantity }: CartItemProps) {
       <Img src="https://via.placeholder.com/80" alt="image" />
       <Info>
         <Title>{title}</Title>
-        <button onClick={dispatchDecreaseQuantity}>-</button>
-        <div>{quantity}</div>
-        <button onClick={dispatchIncreaseQuantity}>+</button>
+        <Counter>
+          <CounterBtn onClick={dispatchDecreaseQuantity}>-</CounterBtn>
+          <div>{quantity}</div>
+          <CounterBtn onClick={dispatchIncreaseQuantity}>+</CounterBtn>
+        </Counter>
       </Info>
       <RemoveBtn onClick={dispatchRemoveFromCart}>X</RemoveBtn>
     </Container>
