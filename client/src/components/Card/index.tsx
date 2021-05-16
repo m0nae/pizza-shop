@@ -4,6 +4,13 @@ import {
   ImageContainer,
   InfoContainer,
   Ingredients,
+  IngredientsList,
+  Button,
+  CardBottom,
+  Title,
+  Price,
+  InfoTop,
+  InfoBottom,
 } from "./CardStyles";
 import { addToCart, removeFromCart } from "../../app/pizzaSlice";
 import { useDispatch } from "react-redux";
@@ -53,16 +60,29 @@ export default function ({ name, image, price, ingredients, id }: CardProps) {
         <img src={image} alt="photo of pizza" />
       </ImageContainer>
       <InfoContainer>
-        <p>{name}</p>
-        <p>{price}</p>
-        <div onClick={handleShowIngredients}>Ingredients</div>
-        <Ingredients showIngredients={showIngredients}>
-          {ingredientsList}
-        </Ingredients>
-        <CartBtn
-          isInCart={isInCart()}
-          onClick={isInCart() ? dispatchRemoveFromCart : dispatchAddToCart}
-        />
+        <InfoTop>
+          <Title>{name}</Title>
+          <Ingredients onClick={handleShowIngredients}>
+            <p>Ingredients</p>
+            {showIngredients ? (
+              <i className="fas fa-caret-down"></i>
+            ) : (
+              <i className="fas fa-caret-right"></i>
+            )}
+          </Ingredients>
+          <IngredientsList showIngredients={showIngredients}>
+            <ul>{ingredientsList}</ul>
+          </IngredientsList>
+        </InfoTop>
+        <InfoBottom>
+          <CardBottom>
+            <Price>${price}</Price>
+            <CartBtn
+              isInCart={isInCart()}
+              onClick={isInCart() ? dispatchRemoveFromCart : dispatchAddToCart}
+            />
+          </CardBottom>
+        </InfoBottom>
       </InfoContainer>
     </Container>
   );
@@ -75,6 +95,8 @@ type BtnProps = {
 
 export function CartBtn({ onClick, isInCart }: BtnProps) {
   return (
-    <button onClick={onClick}>{isInCart ? "Remove Order" : "Order"}</button>
+    <Button onClick={onClick}>
+      {isInCart ? "Added To Cart" : "Add To Cart"}
+    </Button>
   );
 }
