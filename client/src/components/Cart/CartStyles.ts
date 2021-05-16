@@ -24,7 +24,7 @@ export const Container = styled.div`
 export const CloseIcon = styled.div`
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
 
   > * {
