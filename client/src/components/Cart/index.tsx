@@ -28,7 +28,7 @@ export default function ({ isCartOpen }: CartProps) {
   const cartItemsList = cartItems.map((item) => {
     return (
       <CartItem
-        key={item.id}
+        key={item.id + 123}
         id={item.id}
         title={item.name}
         quantity={item.quantity}

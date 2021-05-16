@@ -20,7 +20,7 @@ type CardProps = {
 export default function ({ name, image, price, ingredients, id }: CardProps) {
   const [showIngredients, setShowIngredients] = useState(false);
   const ingredientsList = ingredients?.map((ingredient, index) => (
-    <p key={index}>{ingredient}</p>
+    <li key={index + 10}>{ingredient}</li>
   ));
 
   const dispatch = useDispatch();
