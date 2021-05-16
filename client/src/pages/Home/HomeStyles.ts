@@ -21,16 +21,24 @@ export const NavRight = styled.div``;
 
 export const CartIcon = styled.div`
   cursor: pointer;
-  border: 1px solid whitesmoke;
+  /* border: 1px solid whitesmoke;
   border-radius: 50%;
   width: 3.5rem;
   height: 3.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
   > * {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid whitesmoke;
+    background-color: #fff;
+    line-height: 28px;
+    vertical-align: middle;
+    padding: 8px;
   }
 `;
 
