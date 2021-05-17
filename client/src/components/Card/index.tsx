@@ -91,12 +91,12 @@ export default function ({ name, image, price, ingredients, id }: CardProps) {
 
 type BtnProps = {
   onClick: () => void;
-  isInCart?: boolean;
+  isInCart: boolean;
 };
 
 export function CartBtn({ onClick, isInCart }: BtnProps) {
   return (
-    <Button onClick={onClick}>
+    <Button isInCart={isInCart} onClick={onClick}>
       {isInCart ? "Added To Cart" : "Add To Cart"}
     </Button>
   );

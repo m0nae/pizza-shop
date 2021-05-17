@@ -80,8 +80,13 @@ export const CardBottom = styled.div`
   justify-self: center;
 `;
 
+interface ButtonProps {
+  isInCart: boolean;
+}
+
 export const Button = styled.button`
-  background-color: #d61600;
+  background-color: ${(props: ButtonProps) =>
+    props.isInCart ? "#b7b7b7" : "#d61600"};
   padding: 0.7rem 1rem;
   border: none;
   border-radius: 4px;
