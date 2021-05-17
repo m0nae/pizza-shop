@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { CartProps } from "../../components/Cart";
+
+interface Props {
+  isCartOpen?: boolean;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -64,8 +67,9 @@ export const Wrapper = styled.div`
   // when toggled off, the width will just be 90vw (?)
   // and set the width to actual px (not vw) and use breakpoints
   /* width: calc(100vw - 400px); */
-  width: ${(props: CartProps) =>
+  width: ${(props: Props) =>
     props.isCartOpen ? "calc(100vw - 400px)" : "100vw"};
+
   order: 1;
 
   transition: width 0.3s ease-in-out;
