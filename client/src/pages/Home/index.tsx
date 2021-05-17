@@ -41,8 +41,6 @@ export default function Home() {
     );
   });
 
-  console.log("hopefully it doesnt go wonky again");
-
   useEffect(() => {
     appDispatch(fetchAllPizzas());
   }, [appDispatch]);
