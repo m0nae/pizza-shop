@@ -60,5 +60,5 @@ export const CardsContainer = styled.div`
   padding-top: 1rem;
   margin: 0 auto;
   max-width: 90%;
-  width: 90%;
+  width: 75%;
 `;
