@@ -57,7 +57,7 @@ export default function ({ name, image, price, ingredients, id }: CardProps) {
   return (
     <Container>
       <ImageContainer>
-        <img src={image} alt="photo of pizza" />
+        <img src={image} alt="pepperoni pizza" width="370" height="180" />
       </ImageContainer>
       <InfoContainer>
         <InfoTop>

@@ -32,7 +32,7 @@ export default function Home() {
     return (
       <Card
         key={pizza.id}
-        image="https://via.placeholder.com/370"
+        image="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80"
         id={pizza.id}
         name={pizza.name}
         price={pizza.price}
@@ -41,9 +41,11 @@ export default function Home() {
     );
   });
 
+  console.log("hopefully it doesnt go wonky again");
+
   useEffect(() => {
     appDispatch(fetchAllPizzas());
-  }, []);
+  }, [appDispatch]);
 
   return (
     <Container>
