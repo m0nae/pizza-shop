@@ -51,6 +51,7 @@ export const Ingredients = styled.div`
   margin-top: 0.2rem;
   display: flex;
   font-size: 0.9rem;
+  cursor: pointer;
 
   > i {
     font-size: 0.8rem;
