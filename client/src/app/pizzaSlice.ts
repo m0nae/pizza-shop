@@ -57,6 +57,9 @@ export const pizzaSlice = createSlice({
         );
 
         state.cart = updatedCart;
+        if (state.cart.length < 1) {
+          state.isCartOpen = false;
+        }
       }
     },
 
