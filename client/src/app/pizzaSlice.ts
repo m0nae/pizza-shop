@@ -108,7 +108,7 @@ export const pizzaSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllPizzas.fulfilled, (state, action) => {
-      state.allPizzas.push(...action.payload);
+      state.allPizzas = [...action.payload];
       state.allPizzas.forEach((pizza) => {
         // set a default quantity to 0 for all pizzas when first fetched
         pizza.quantity = 0;
