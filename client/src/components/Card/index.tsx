@@ -15,6 +15,7 @@ import {
 import { addToCart, removeFromCart } from "../../app/pizzaSlice";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../app/hooks";
+import { v4 as uuid } from "uuid";
 
 type CardProps = {
   name: string;
@@ -27,7 +28,7 @@ type CardProps = {
 export default function ({ name, image, price, ingredients, id }: CardProps) {
   const [showIngredients, setShowIngredients] = useState(false);
   const ingredientsList = ingredients?.map((ingredient, index) => (
-    <li key={index + 10}>{ingredient}</li>
+    <li key={uuid()}>{ingredient}</li>
   ));
 
   const dispatch = useDispatch();

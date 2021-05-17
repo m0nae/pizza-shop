@@ -12,7 +12,7 @@ import { toggleCart } from "../../app/pizzaSlice";
 import { PizzaI } from "../../types";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../app/hooks";
-
+import { v4 as uuid } from "uuid";
 export interface CartProps {
   isCartOpen: boolean;
 }
@@ -28,7 +28,7 @@ export default function ({ isCartOpen }: CartProps) {
   const cartItemsList = cartItems.map((item) => {
     return (
       <CartItem
-        key={item.id + 123}
+        key={uuid()}
         id={item.id}
         title={item.name}
         quantity={item.quantity}
