@@ -2,11 +2,14 @@ import {
   Container,
   Counter,
   CounterBtn,
+  CounterIncreaseBtn,
   Img,
   Info,
   RemoveBtn,
   Title,
 } from "./CartItemStyles";
+import { GrAdd } from "react-icons/gr";
+
 import { useDispatch } from "react-redux";
 import {
   decreaseQuantity,
@@ -41,9 +44,9 @@ export default function ({ id, title, quantity }: CartItemProps) {
       <Info>
         <Title>{title}</Title>
         <Counter>
-          <CounterBtn onClick={dispatchDecreaseQuantity}>-</CounterBtn>
+          <CounterBtn onClick={dispatchDecreaseQuantity} />
           <div>{quantity}</div>
-          <CounterBtn onClick={dispatchIncreaseQuantity}>+</CounterBtn>
+          <CounterIncreaseBtn as={GrAdd} onClick={dispatchIncreaseQuantity} />
         </Counter>
       </Info>
       <RemoveBtn onClick={dispatchRemoveFromCart}>X</RemoveBtn>

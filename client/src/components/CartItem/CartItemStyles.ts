@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { GrSubtract } from "react-icons/gr";
 
 export const Container = styled.div`
   display: flex;
@@ -40,13 +41,21 @@ export const RemoveBtn = styled.div`
   cursor: pointer;
 `;
 
-export const CounterBtn = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1rem 0.5rem;
-  border: none;
-  border-radius: 4px;
-  background-color: lightgrey;
+export const CounterBtn = styled(GrSubtract)`
+  font-size: 1.5rem;
+  border-radius: 3px;
+  padding: 0.3rem;
+  margin-right: 0.7rem;
+  border: 2px solid whitesmoke;
   cursor: pointer;
+
+  &:hover {
+    background-color: #e6e6e6;
+    border: 2px solid #e6e6e6;
+  }
+`;
+
+export const CounterIncreaseBtn = styled(CounterBtn)`
+  margin-left: 0.7rem;
+  margin-right: 0;
 `;
