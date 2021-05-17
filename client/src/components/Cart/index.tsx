@@ -4,8 +4,10 @@ import {
   CheckoutBtn,
   CloseIcon,
   Container,
+  Price,
   Sidebar,
   Total,
+  TotalContainer,
 } from "./CartStyles";
 import CartItem from "../CartItem";
 import { toggleCart } from "../../app/pizzaSlice";
@@ -48,7 +50,10 @@ export default function ({ isCartOpen }: CartProps) {
         </CloseIcon>
         <CartTop>{cartItemsList}</CartTop>
         <CartBottom>
-          <Total>Total: ${cartTotal}</Total>
+          <TotalContainer>
+            <Total>Total: </Total>
+            <Price>${cartTotal}</Price>
+          </TotalContainer>
           <CheckoutBtn>Checkout</CheckoutBtn>
         </CartBottom>
       </Container>

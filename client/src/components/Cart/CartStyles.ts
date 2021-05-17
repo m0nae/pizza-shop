@@ -42,8 +42,18 @@ export const CartBottom = styled.div`
   margin-top: 1rem;
 `;
 
+export const TotalContainer = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+`;
+
 export const Total = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-right: 0.7rem;
+`;
+
+export const Price = styled(Total)`
   font-weight: 600;
 `;
 
