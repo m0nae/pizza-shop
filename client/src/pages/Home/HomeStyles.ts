@@ -5,6 +5,21 @@ export const Container = styled.div`
   display: flex;
 `;
 
+export const Header = styled.h1`
+  font-family: "Open Sans", sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #d72d2c;
+  line-height: 1;
+`;
+
+export const Description = styled.h2`
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #5f5f5f;
+  margin-bottom: 2rem;
+`;
+
 export const Navbar = styled.nav`
   width: 100%;
   height: 80px;
@@ -57,7 +72,9 @@ export const Wrapper = styled.div`
 export const CardsContainer = styled.div`
   /* display: flex;
   flex-wrap: wrap; */
-  padding-top: 1rem;
+  min-height: 100%;
+  padding-top: 3rem;
+
   margin: 0 auto;
   max-width: 90%;
   width: 75%;

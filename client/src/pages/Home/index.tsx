@@ -7,6 +7,8 @@ import {
   CartIcon,
   NavLeft,
   NavRight,
+  Header,
+  Description,
 } from "./HomeStyles";
 import Card from "../../components/Card";
 import Cart from "../../components/Cart";
@@ -58,7 +60,13 @@ export default function Home() {
             </CartIcon>
           </NavRight>
         </Navbar>
-        <CardsContainer>{cardList}</CardsContainer>
+        <CardsContainer>
+          <Header>Acme's Pizza</Header>
+          <Description>
+            Choose from the delicious selection of the world's best pizza!
+          </Description>
+          {cardList}
+        </CardsContainer>
       </Wrapper>
       <Cart isCartOpen={isCartOpen} />
     </Container>
