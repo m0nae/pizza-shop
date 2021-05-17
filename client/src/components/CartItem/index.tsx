@@ -4,6 +4,7 @@ import {
   CounterBtn,
   CounterIncreaseBtn,
   Img,
+  ImgContainer,
   Info,
   RemoveBtn,
   Title,
@@ -40,7 +41,13 @@ export default function ({ id, title, quantity }: CartItemProps) {
 
   return (
     <Container>
-      <Img src="https://via.placeholder.com/80" alt="image" />
+      <ImgContainer>
+        <Img
+          src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80"
+          height="80"
+          alt="image"
+        />
+      </ImgContainer>
       <Info>
         <Title>{title}</Title>
         <Counter>

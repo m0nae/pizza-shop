@@ -13,10 +13,16 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const Img = styled.img`
-  width: 80px;
-  height: 80px;
+export const ImgContainer = styled.div`
+  max-width: 80px;
+  overflow: hidden;
   margin-right: 1rem;
+  margin-bottom: 0;
+  height: 80px;
+`;
+
+export const Img = styled.img`
+  height: 80px;
 `;
 
 export const Info = styled.div`
