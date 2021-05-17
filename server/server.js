@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const PORT = 1010;
+const PORT = process.env.PORT;
 
 const orderService = require("./services/orderService");
 
@@ -18,5 +18,5 @@ app.get("/order", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${PORT}`);
 });
