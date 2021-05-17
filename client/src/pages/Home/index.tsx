@@ -34,7 +34,7 @@ export default function Home() {
         key={pizza.id}
         image="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80"
         id={pizza.id}
-        name={pizza.name}
+        name={`🍕 ${pizza.name} 🍕`}
         price={pizza.price}
         ingredients={pizza.ingredients}
       />
