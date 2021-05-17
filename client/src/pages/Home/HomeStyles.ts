@@ -15,6 +15,10 @@ export const Header = styled.h1`
   color: #d72d2c;
   line-height: 1;
   align-self: flex-start;
+
+  @media (max-width: 380px) {
+    font-size: clamp(3rem, 20vw, 4rem);
+  }
 `;
 
 export const Description = styled.h2`
@@ -23,6 +27,10 @@ export const Description = styled.h2`
   color: #5f5f5f;
   margin-bottom: 2rem;
   align-self: flex-start;
+
+  @media (max-width: 380px) {
+    font-size: clamp(1.3rem, 7vw, 2rem);
+  }
 `;
 
 export const Navbar = styled.nav`
