@@ -7,10 +7,11 @@ export const Container = styled.div`
 
 export const Header = styled.h1`
   font-family: "Open Sans", sans-serif;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 800;
   color: #d72d2c;
   line-height: 1;
+  align-self: flex-start;
 `;
 
 export const Description = styled.h2`
@@ -18,6 +19,7 @@ export const Description = styled.h2`
   font-weight: 400;
   color: #5f5f5f;
   margin-bottom: 2rem;
+  align-self: flex-start;
 `;
 
 export const Navbar = styled.nav`
@@ -69,13 +71,27 @@ export const Wrapper = styled.div`
   transition: width 0.3s ease-in-out;
 `;
 
-export const CardsContainer = styled.div`
-  /* display: flex;
-  flex-wrap: wrap; */
+export const CardsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100%;
   padding-top: 3rem;
 
   margin: 0 auto;
-  max-width: 90%;
   width: 75%;
+
+  @media (max-width: 930px) {
+    width: 60%;
+  }
+`;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
+  align-self: center;
+  > div {
+    align-self: center;
+  }
 `;
