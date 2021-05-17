@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GrSubtract } from "react-icons/gr";
+import { GrSubtract, GrClose } from "react-icons/gr";
 
 export const Container = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ export const Counter = styled.div`
   width: 100%;
 `;
 
-export const RemoveBtn = styled.div`
+export const RemoveBtn = styled(GrClose)`
   position: absolute;
   top: 0.5rem;
   right: 0.8rem;
