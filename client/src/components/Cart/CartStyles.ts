@@ -10,6 +10,10 @@ export const Sidebar = styled.div`
   right: 0;
 
   transition: width 0.3s ease-in-out;
+
+  @media (max-width: 800px) {
+    width: ${(props: CartProps) => (props.isCartOpen ? "100vw" : "0px")};
+  }
 `;
 
 export const Container = styled.div`
