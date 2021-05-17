@@ -101,6 +101,14 @@ export const CardsWrapper = styled.div`
   @media (max-width: 930px) {
     width: 60%;
   }
+
+  @media (max-width: 800px) {
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 500px) {
+    width: 76%;
+  }
 `;
 
 export const CardsContainer = styled.div`
@@ -110,5 +118,9 @@ export const CardsContainer = styled.div`
   align-self: center;
   > div {
     align-self: center;
+  }
+
+  @media (max-width: 450px) {
+    width: 100%;
   }
 `;

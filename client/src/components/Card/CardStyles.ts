@@ -11,6 +11,10 @@ export const Container = styled.div`
   margin-right: 1rem;
   margin-bottom: 1rem;
   overflow: hidden;
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -41,6 +45,13 @@ export const Price = styled.p`
   font-size: 1.4rem;
   font-weight: 600;
   align-self: center;
+
+  @media (max-width: 450px) {
+    align-self: flex-start;
+    margin: 1rem 0;
+    top: 0;
+    right: 10px;
+  }
 `;
 
 interface Props {
@@ -79,6 +90,11 @@ export const CardBottom = styled.div`
   justify-content: space-between;
   align-items: center;
   justify-self: center;
+
+  @media (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 interface ButtonProps {
@@ -95,4 +111,8 @@ export const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   font-size: 1.1rem;
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
