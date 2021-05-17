@@ -15,6 +15,8 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { fetchAllPizzas, toggleCart } from "../../app/pizzaSlice";
 
 export default function Home() {
+  const defaultImage =
+    "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80";
   const appDispatch = useAppDispatch();
   const dispatch = useDispatch();
   const allPizzas = useAppSelector((state) => {
@@ -28,15 +30,15 @@ export default function Home() {
     return dispatch(toggleCart(null));
   };
 
-  const cardList = allPizzas.map((pizza) => {
+  const cardList = allPizzas?.map((pizza) => {
     return (
       <Card
-        key={pizza.id}
-        image="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80"
-        id={pizza.id}
-        name={`🍕 ${pizza.name} 🍕`}
-        price={pizza.price}
-        ingredients={pizza.ingredients}
+        key={pizza?.id}
+        image={defaultImage}
+        id={pizza?.id}
+        name={`🍕 ${pizza?.name} 🍕`}
+        price={pizza?.price}
+        ingredients={pizza?.ingredients}
       />
     );
   });
