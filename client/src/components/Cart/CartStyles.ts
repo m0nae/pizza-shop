@@ -20,9 +20,22 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 4rem 2.5rem 2rem 2.5rem;
   justify-content: space-between;
   position: relative;
+
+  @media (max-width: 800px) {
+    padding: 4rem 4rem 2rem 5rem;
+  }
+
+  @media (max-width: 380px) {
+    padding: 4rem 2rem 2rem 4rem;
+  }
+
+  @media (max-width: 325px) {
+    padding: 4rem 0.5rem 2rem 2rem;
+    margin-left: 1rem;
+  }
 `;
 
 export const CloseIcon = styled.div`
