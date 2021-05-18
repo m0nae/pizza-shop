@@ -10,9 +10,11 @@ import {
   Header,
   Description,
   CardsWrapper,
+  ErrorMessage,
 } from "./HomeStyles";
 import Card from "../../components/Card";
 import Cart from "../../components/Cart";
+import Spinner from "../../components/Spinner";
 import { useDispatch } from "react-redux";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { fetchAllPizzas, toggleCart } from "../../app/pizzaSlice";
@@ -72,7 +74,17 @@ export default function Home() {
           <Description>
             Choose from the delicious selection of the world's best pizza!
           </Description>
-          <CardsContainer>{cardList}</CardsContainer>
+          <CardsContainer>
+            {loading ? (
+              <Spinner />
+            ) : error ? (
+              <ErrorMessage>
+                There was an error retrieving the data. Please try again.
+              </ErrorMessage>
+            ) : (
+              cardList
+            )}
+          </CardsContainer>
         </CardsWrapper>
       </Wrapper>
       <Cart isCartOpen={isCartOpen} />
