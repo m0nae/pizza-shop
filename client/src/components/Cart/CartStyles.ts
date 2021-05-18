@@ -28,12 +28,8 @@ export const Container = styled.div`
     padding: 4rem 4rem 2rem 5rem;
   }
 
-  @media (max-width: 380px) {
-    padding: 4rem 2rem 2rem 4rem;
-  }
-
-  @media (max-width: 325px) {
-    padding: 4rem 0.5rem 2rem 2rem;
+  @media (max-width: 500px) {
+    padding: 4rem 1rem 2rem 2.5rem;
     margin-left: 1rem;
   }
 `;
