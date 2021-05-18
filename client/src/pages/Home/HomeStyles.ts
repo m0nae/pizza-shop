@@ -6,6 +6,8 @@ interface Props {
 
 export const Container = styled.div`
   display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
 `;
 
 export const Header = styled.h1`
