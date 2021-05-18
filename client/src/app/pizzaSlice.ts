@@ -12,12 +12,14 @@ interface PizzaSliceState {
   allPizzas: PizzaI[];
   cart: PizzaI[];
   isCartOpen: boolean;
+  loading: boolean;
 }
 
 const initialState: PizzaSliceState = {
   allPizzas: [],
   cart: [],
   isCartOpen: false,
+  loading: false,
 };
 
 // a general function that can check the existence of a certain pizza
@@ -109,11 +111,16 @@ export const pizzaSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllPizzas.fulfilled, (state, action) => {
+      state.loading = false;
       state.allPizzas = [...action.payload];
       state.allPizzas.forEach((pizza) => {
         // set a default quantity to 0 for all pizzas when first fetched
         pizza.quantity = 0;
       });
+    });
+
+    builder.addCase(fetchAllPizzas.pending, (state, action) => {
+      state.loading = true;
     });
   },
 });
