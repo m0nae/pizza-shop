@@ -4,7 +4,7 @@ import type { PizzaI } from "../types";
 const SERVER_DOMAIN = process.env.REACT_APP_SERVER_DOMAIN;
 
 export const fetchAllPizzas = createAsyncThunk("pizzas/fetchAll", async () => {
-  const response = await fetch(`${SERVER_DOMAIN}`);
+  const response = await fetch(`${SERVER_DOMAIN}/pizzas`);
   return response.json();
 });
 
