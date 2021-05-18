@@ -6,7 +6,7 @@ interface Props {
 
 export const Container = styled.div`
   display: flex;
-  max-width: 1500px;
+  max-width: 2300px;
   margin: 0 auto;
 `;
 
