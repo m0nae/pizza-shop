@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import type { RootState } from "./store";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PizzaI } from "../types";
 
 export const fetchAllPizzas = createAsyncThunk("pizzas/fetchAll", async () => {
