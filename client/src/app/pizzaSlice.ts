@@ -13,6 +13,7 @@ interface PizzaSliceState {
   cart: PizzaI[];
   isCartOpen: boolean;
   loading: boolean;
+  error: boolean;
 }
 
 const initialState: PizzaSliceState = {
@@ -20,6 +21,7 @@ const initialState: PizzaSliceState = {
   cart: [],
   isCartOpen: false,
   loading: false,
+  error: false,
 };
 
 // a general function that can check the existence of a certain pizza
@@ -121,6 +123,11 @@ export const pizzaSlice = createSlice({
 
     builder.addCase(fetchAllPizzas.pending, (state, action) => {
       state.loading = true;
+    });
+
+    builder.addCase(fetchAllPizzas.rejected, (state, action) => {
+      state.loading = false;
+      state.error = true;
     });
   },
 });

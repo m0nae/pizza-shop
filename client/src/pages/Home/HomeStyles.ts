@@ -124,3 +124,10 @@ export const CardsContainer = styled.div`
     width: 100%;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  font-weight: 600;
+  color: #d72d2c;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+`;

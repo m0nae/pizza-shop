@@ -28,6 +28,9 @@ export default function Home() {
   const loading = useAppSelector((state) => {
     return state.pizzas.loading;
   });
+  const error = useAppSelector((state) => {
+    return state.pizzas.error;
+  });
   const isCartOpen = useAppSelector((state) => {
     return state.pizzas.isCartOpen;
   });
