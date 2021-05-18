@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PizzaI } from "../types";
 
+const SERVER_DOMAIN = process.env.REACT_APP_SERVER_DOMAIN;
+
 export const fetchAllPizzas = createAsyncThunk("pizzas/fetchAll", async () => {
-  const response = await fetch("http://localhost:1010/pizzas");
+  const response = await fetch(`${SERVER_DOMAIN}`);
   return response.json();
 });
 
