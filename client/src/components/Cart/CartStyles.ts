@@ -29,8 +29,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 500px) {
-    padding: 4rem 1rem 2rem 2.5rem;
-    margin-left: 1rem;
+    padding: 4rem 2rem 2rem 2rem;
   }
 `;
 
