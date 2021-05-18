@@ -19,7 +19,7 @@ export interface CartProps {
   isCartOpen: boolean;
 }
 
-export default function ({ isCartOpen }: CartProps) {
+export default function Cart({ isCartOpen }: CartProps) {
   const dispatch = useDispatch();
   const cartItems = useAppSelector((state) => state.pizzas.cart);
   const reducer = (accumulator: number, currentValue: PizzaI): number => {

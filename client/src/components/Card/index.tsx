@@ -25,7 +25,13 @@ type CardProps = {
   id: number;
 };
 
-export default function ({ name, image, price, ingredients, id }: CardProps) {
+export default function Card({
+  name,
+  image,
+  price,
+  ingredients,
+  id,
+}: CardProps) {
   const [showIngredients, setShowIngredients] = useState(false);
   const ingredientsList = ingredients?.map((ingredient, index) => (
     <li key={uuid()}>{ingredient}</li>

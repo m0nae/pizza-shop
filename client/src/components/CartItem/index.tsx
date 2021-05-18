@@ -24,7 +24,7 @@ type CartItemProps = {
   quantity: number;
 };
 
-export default function ({ id, title, quantity }: CartItemProps) {
+export default function CartItem({ id, title, quantity }: CartItemProps) {
   const dispatch = useDispatch();
 
   const dispatchDecreaseQuantity = () => {
