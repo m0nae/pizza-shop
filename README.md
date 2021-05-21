@@ -1,8 +1,6 @@
-<h1>:pizza: Acme's Pizza Shop :pizza:</h1>
+<h1><img src="https://user-images.githubusercontent.com/74229895/119077967-e7444a00-b9ba-11eb-88ee-54cdfd00dc5c.png" /></h1>
 
-> A menu page and shopping cart for a pizza shop.
-> 
-<div align="center"><a href="http://pizzashop.monae.me">:computer: Live demo :computer:</a></div> 
+<div align="center"><a href="http://pizzashop.monae.me">:sparkles: Live demo :sparkles:</a></div> 
 
 ## :desktop_computer: Tech Stack 
 ### Frontend
