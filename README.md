@@ -2,7 +2,7 @@
 
 > A menu page and shopping cart for a pizza shop.
 > 
-<div align="center"><a href="https://acmespizzashop.netlify.com">:computer: Live demo :computer:</a></div> 
+<div align="center"><a href="http://pizzashop.monae.me">:computer: Live demo :computer:</a></div> 
 
 ## :desktop_computer: Tech Stack 
 ### Frontend
